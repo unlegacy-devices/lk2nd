@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: BSD-3-Clause
+#include <skeleton32.dtsi>
+#include <lk2nd.dtsi>
+
+&lk2nd {
+	samsung-serrano {
+		model = "Samsung Galaxy S4 (GT-I9505)";
+		compatible = "samsung,jflte", "samsung,jf";
+		lk2nd,match-bootloader = "I9505*";
+
+		gpio-keys {
+			compatible = "gpio-keys";
+
+			volume-up {
+				lk2nd,code = <KEY_VOLUMEUP>;
+				gpios = <&tlmm 115 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+			};
+			volume-down {
+				lk2nd,code = <KEY_VOLUMEDOWN>;
+				gpios = <&tlmm 114 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+			};
+			home {
+				lk2nd,code = <KEY_HOME>;
+				gpios = <&tlmm 172 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+			};
+		};
+	};
+};
